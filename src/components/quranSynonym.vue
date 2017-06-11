@@ -40,9 +40,14 @@
 	    		this.loading = true;
 	    		this.data = null;
 	    		var comp = this;
-	    		require(['../data/content/b'], function( b ){
-	    			console.log(b);
-	    			comp.data = b[ 'content/b/b1.html' ];
+
+	    		comp.section = comp.id.replace(/\d+/, ''); //returns "b" for b12
+				comp.number = +comp.id.replace(/[^\d]+/, ''); //returns 12 for b12
+				comp.path = '../data/content/' + comp.section;
+				comp.lookup = 'content/' + comp.section +'/' + comp.id + '.html';
+	    		require([ '../data/content/' + comp.section ], function( data ){
+	    			console.log( data );
+	    			comp.data = data[ comp.lookup ];
 	    		})
 	    	},
 	    },
