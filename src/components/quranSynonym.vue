@@ -116,6 +116,7 @@
 	    									 .replace(/background-color:#f0efec/g, '')
 	    									 .replace(/background-color:#c4ecbd/g, '')
 	    									 .replace(/background-color:#e4eedc/g, '')
+	    									 .replace(/background-color:#fce5cd/g, '')
 	    									 .replace(/<h1 style="padding-left:0;padding-right:0;line-height:1.15;padding-top:24pt;color:#000000;text-align:left;direction:ltr;;margin:0;font-family:&quot;Arial&quot;;font-weight:bold;padding-bottom:6pt">/g, '<h4>')
 											 .replace(/<h1 style="padding-left:0;padding-right:0;padding-top:24pt;text-align:left;direction:ltr;margin-bottom:0;font-weight:bold;padding-bottom:6pt;line-height:1.15;margin-right:0;color:#000000;;margin-left:20pt;font-family:&quot;Arial&quot;;margin-top:0">/g, '')
 											 .replace(/<h1 class="c4">/g, '<h4>')
