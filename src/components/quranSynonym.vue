@@ -57,7 +57,10 @@
 	    },
 	    methods: {
 	    	onChange: function(diff){
-	    		location.hash = location.hash.replace(/\d+/, this.number + diff)
+	    		var no = this.number + diff;
+	    		no = no < 1 ? 1 : no;
+	    		no = no > this.topicsCount ? this.topicsCount : no;
+	    		location.hash = location.hash.replace(/\d+/, no);
 	    	},
 
 	    	fetchData: function(){
