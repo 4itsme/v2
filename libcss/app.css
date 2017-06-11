@@ -1,0 +1,259 @@
+  	.dashboardheader{
+	    text-align: center;
+	    background-color: #2ca4ab;
+	    background-size: cover;
+	    background-repeat: no-repeat;
+	    background-position: 50%;
+	    padding: 1rem 0;
+	    color: #fff;
+	}
+
+	.dashboardIndexHeader{
+	    display: inline-block;
+	    width: 30%;
+	    margin-top: 35px;
+	}
+
+	.dashboardClass2 {
+	    color: #8edde2;
+	    font-size: 160%;
+	    padding-bottom: 3.5%;
+	}
+
+	.dashboardClass3 {
+	    padding-top: 10px;
+	    padding-bottom: 10px;
+	    height: auto;
+	    width: 100%;
+	}
+
+	.dashboardClass4 {
+	    padding: 20px 0;
+	    font-size: 14px;
+	    margin-top: 20px;
+	}
+
+	.text-muted{
+		color: #d1d0d0!important;
+	}
+
+	.right-inner-addon {
+	    position: relative;
+	    margin: 0 auto;
+	    margin-bottom: 50px;
+	}
+
+	.right-inner-addon input {
+	    width: 100%;
+	    padding: 20px 30px;
+	    padding-right: 60px;
+	    outline: none;
+	    border: none;
+	    background-color: #fff;
+	    color: #2ca4ab;
+	}
+
+	.right-inner-addon i.ss-icon:hover {
+	    background-color: #3dc5cd;
+	}
+
+	.right-inner-addon i.ss-icon {
+	    position: absolute;
+	    right: 0;
+	    padding: 15px;
+	    font-size: 150%;
+	    background-color: #2ca4ab;
+	    color: #fff;
+	    cursor: pointer;
+	    height: 100%;
+	    border: 3px solid #fff;
+	}
+
+
+
+
+	<!-- dashboard ayah menu related -->
+	.sura-menu-class1 {
+	    color: #2ca4ab;
+	}
+
+	.sura-menu-class2 {
+	    display: block;
+	    padding: 10px;
+	}
+
+	.row {
+	    margin-left: -15px;
+	    margin-right: -15px;
+	}
+
+	a {
+	    color: #2ca4ab;
+	    text-decoration: none;
+	}
+
+	.sura-menu-class3 {
+	    font-size: 14px;
+	    white-space: pre;
+	}
+
+	.col-xs-3 {
+	    width: 25%;
+	}
+
+	.sura-menu-class2 .sura-menu-class4 {
+	    font-size: 10px;
+	}
+
+	.col-xs-offset-2 {
+	    margin-left: 16.66667%;
+	}
+
+	.col-xs-10 {
+	    width: 83.33333%;
+	}
+
+	.list-inline, .list-unstyled {
+	    padding-left: 0;
+	    list-style: none;
+	}
+
+	.suras-menu-row {
+	    margin-left: -15px;
+	    margin-right: -15px;
+	}
+
+
+	<!-- general styles follow -->
+	.quranText {
+	    direction: rtl;
+	    font-size: 1.15em;
+	    text-align: right;
+	    width: 412px;
+	    margin: 0px 30px;
+	    padding: 16px 14px;
+	    color: black;
+	}
+
+	.arr2{
+		font-size: 1.8235em;
+	}
+
+	.aya {
+	    /*background-color: #F7FCE3;*/
+	}
+
+	.aya.hover, .aya:hover {
+	    background-color: #E4EEDC;
+	}
+
+	.aya.select{
+		background-color: #F7FCE3;
+	}
+
+	.aya.highlight {
+	    background-color: #C4ECBD!important;
+	}
+
+	.ayaNumber {
+	    font-size: .85em;
+	    white-space: nowrap;
+	    color: #050;
+	    cursor: pointer;
+	}
+
+	.ayaNumber a {
+	    color: #050;
+	}
+
+	.aya.highlight .sign {
+	    color: black;
+	}
+
+	.aya.highlight span.highlight {
+	    color: blue;
+	}
+
+	.besm {
+	    text-align: center;
+	}
+
+	.arrow-link {
+	    font-family: "Times New Roman";
+	    color: #AAA;
+	    font-size: 0.9em;
+	    text-decoration: none;
+	    cursor: pointer;
+	}
+	.arrow-link:hover, .w2w{
+		text-decoration: none;
+	}
+
+	.sign {
+	    font-family: "Times New Roman";
+	    color: #FB7600;
+	    font-size: 0.9em;
+	    font-size: 1.08235em;
+	}
+
+	  [v-cloak] {
+	  	display: none;
+	  }
+
+	  mark, .mark{
+	       background: #ff0!important;
+	   }
+
+	   table {
+		  border: 2px solid #42b983;
+		  border-radius: 3px;
+		  background-color: #fff;
+		}
+
+		th {
+		  background-color: #42b983;
+		  color: rgba(255,255,255,0.66);
+		  cursor: pointer;
+		  -webkit-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		td {
+		  background-color: #f9f9f9;
+		}
+
+		th, td {
+		  min-width: 120px;
+		  padding: 10px 20px;
+		}
+
+		th.active {
+		  color: #fff;
+		}
+
+		th.active .arrow {
+		  opacity: 1;
+		}
+
+		.arrow {
+		  display: inline-block;
+		  vertical-align: middle;
+		  width: 0;
+		  height: 0;
+		  margin-left: 5px;
+		  opacity: 0.66;
+		}
+
+		.arrow.asc {
+		  border-left: 4px solid transparent;
+		  border-right: 4px solid transparent;
+		  border-bottom: 4px solid #fff;
+		}
+
+		.arrow.dsc {
+		  border-left: 4px solid transparent;
+		  border-right: 4px solid transparent;
+		  border-top: 4px solid #fff;
+		}
