@@ -98,6 +98,7 @@
 	    				comp.error = "No entry found for " + comp.id + " in section " + comp.section;
 	    			}else{
 	    				var fnGrabHtmlBody = function(htmlText){
+	    					if(htmlText.indexOf('body') == -1) return htmlText;
 							var tmp;
 							var regexGrabHtmlBody = /(<body[^\>]*>|<\/body>)/ig;
 							return (tmp = htmlText.split(regexGrabHtmlBody)) && tmp && tmp.length >= 2 ? tmp[2] : tmp;
