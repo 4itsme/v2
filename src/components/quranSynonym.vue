@@ -61,6 +61,16 @@
 	    			comp.data = data[ comp.lookup ];
 	    			if(!comp.data){
 	    				comp.error = "No entry found for " + comp.id + " in section " + comp.section;
+	    			}else{
+	    				//post processing to make pretty
+	    				var arabicRegex = //   [\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufbc1]|[\ufbd3-\ufd3f]|[\ufd50-\ufd8f]|[\ufd92-\ufdc7]|[\ufe70-\ufefc]|[\uFDF0-\uFDFD]  //from: https://stackoverflow.com/questions/11323596/regular-expression-for-arabic-language
+	    								// /[^\u0000-\u007F]+/g  //match any non ascii
+	    								/[\u0600-\u06FF]+/g;
+
+	    				comp.data = comp.data.replace(arabicRegex, function(match){
+												return '<span class=arr2>' + match + '</span>';
+ 											  });
+
 	    			}
 	    			comp.loading = false;
 	    		},
