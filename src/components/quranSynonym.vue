@@ -91,7 +91,8 @@
 	    								// /[\u0600-\u06FF]+/g;
 	    				comp.data = comp.data.replace(/font-size:11pt;margin:0;font-family:&quot;Arial&quot;;padding:0/g, '') // style="text-align:right;color:#000000;direction:ltr;font-size:11pt;margin:0;font-family:&quot;Arial&quot;;padding:0"
 	    									 //.replace(/ style="font-size:16pt"/g, '')
-	    									 .replace(/font-size:\d+pt/g, ''); //font-size:16pt
+	    									 .replace(/font-size:\d+pt/g, '') //font-size:16pt
+	    									 .replace(/background-color:#f4f4f4;/g, '');
 	    				comp.data = fnGrabHtmlBody( comp.data )
 	    								.replace(/&#(\d+);/g, function(match, match2) { //first replace Html entities like '&#1740;&#1614;&#1575;&#1620;&#1614;&#1587;&#1614;'
 	    									return String.fromCharCode(+match2);
