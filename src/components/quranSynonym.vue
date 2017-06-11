@@ -1,7 +1,7 @@
 <template>
   <div>
 	Qur'aan Near-Synonym
-	<span class=text-muted>
+	<span class="text-muted pull-right">
 		<a class="arrow-link arrow-left" href=# v-on:click.stop.prevent="onChange( -1 );" title="Previous">◄</a>
 		(
 		<!-- {{section}} -->
@@ -111,7 +111,11 @@
 	    				comp.data = comp.data.replace(/font-size:11pt;margin:0;font-family:&quot;Arial&quot;;padding:0/g, '') // style="text-align:right;color:#000000;direction:ltr;font-size:11pt;margin:0;font-family:&quot;Arial&quot;;padding:0"
 	    									 //.replace(/ style="font-size:16pt"/g, '')
 	    									 .replace(/font-size:\d+pt/g, '') //font-size:16pt
-	    									 .replace(/background-color:#f4f4f4;/g, '');
+	    									 .replace(/background-color:#f4f4f4/g, '')
+	    									 .replace(/background-color:#fffff2/g, '')
+	    									 .replace(/<h1 style="padding-left:0;padding-right:0;line-height:1.15;padding-top:24pt;color:#000000;text-align:left;direction:ltr;;margin:0;font-family:&quot;Arial&quot;;font-weight:bold;padding-bottom:6pt">/g, '<h4>')
+	    									 .replace(/<\/h1>/g, '</h4>')
+	    									 ;
 	    				comp.data = fnGrabHtmlBody( comp.data )
 	    								.replace(/&#(\d+);/g, function(match, match2) { //first replace Html entities like '&#1740;&#1614;&#1575;&#1620;&#1614;&#1587;&#1614;'
 	    									return String.fromCharCode(+match2);
