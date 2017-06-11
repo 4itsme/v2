@@ -54,12 +54,20 @@
 		      // react to route changes...
 		      this.fetchData();
 		    },
+		    number: function(to, from){
+		    	//location.hash = location.hash.replace(/\d+/, this.number);
+	    	},
 	    },
 	    methods: {
 	    	onChange: function(diff){
-	    		var no = this.number + diff;
-	    		no = no < 1 ? 1 : no;
-	    		no = no > this.topicsCount ? this.topicsCount : no;
+	    		var no;
+	    		if(+diff){
+		    		no = this.number + diff;
+		    		no = no < 1 ? 1 : no;
+		    		no = no > this.topicsCount ? this.topicsCount : no;
+		    	}else{
+		    		no = this.number;
+		    	}
 	    		location.hash = location.hash.replace(/\d+/, no);
 	    	},
 
