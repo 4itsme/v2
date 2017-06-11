@@ -42,6 +42,7 @@
 				section: null,
 				number: null,
 				key: null,
+				sections: 'A,AA,b,ch,d,DA,dd,dh,E,f,gg,gh,h,HA,j,k,kh,l,m,n,p,q,r,s,SA,sh,t,TA,th,tt,w,y,z,ZA,appendix'.split(','),
 			};
 		},
 		created: function() {
