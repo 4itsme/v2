@@ -73,7 +73,8 @@
 	    								// /[^\u0000-\u007F]+/g  //match any non ascii
 	    								// /[\u0600-\u06FF]+/g;
 	    				comp.data = comp.data.replace(/font-size:11pt;margin:0;font-family:&quot;Arial&quot;;padding:0/g, '') // style="text-align:right;color:#000000;direction:ltr;font-size:11pt;margin:0;font-family:&quot;Arial&quot;;padding:0"
-	    									 .replace(/ style="font-size:16pt"/g, '');
+	    									 //.replace(/ style="font-size:16pt"/g, '')
+	    									 .replace(/font-size:16pt/g, ''); //font-size:16pt
 	    				comp.data = fnGrabHtmlBody( comp.data )
 	    								.replace(/&#(\d+);/g, function(match, match2) { //first replace Html entities like '&#1740;&#1614;&#1575;&#1620;&#1614;&#1587;&#1614;'
 	    									return String.fromCharCode(+match2);
