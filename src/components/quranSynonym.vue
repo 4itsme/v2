@@ -4,7 +4,10 @@
 	<span class=text-muted>
 		<a class="arrow-link arrow-left" href=# v-on:click.stop.prevent="onChange( -1 );" title="Previous">◄</a>
 		(
-		{{section}}
+		<!-- {{section}} -->
+		<select v-model="section" @change="number=1; onChange()">
+			<option v-for="p in sections" :value="p">{{p}}</option>
+		</select>
 		<select v-model="number" @change="onChange">
 			<option v-for="p in topicsCount" :value="p">{{p}}</option>
 		</select>
@@ -42,7 +45,7 @@
 				section: null,
 				number: null,
 				key: null,
-				sections: 'A,AA,b,ch,d,DA,dd,dh,E,f,gg,gh,h,HA,j,k,kh,l,m,n,p,q,r,s,SA,sh,t,TA,th,tt,w,y,z,ZA,appendix'.split(','),
+				sections: 'A,AA,b,ch,d,DA,dd,dh,E,f,gg,gh,h,HA,j,k,kh,l,m,n,p,q,r,s,SA,sh,t,TA,th,tt,w,y,z,ZA'.split(','),
 			};
 		},
 		created: function() {
@@ -61,7 +64,7 @@
 	    },
 	    methods: {
 	    	onChange: function(diff){
-	    		var no;
+	    		var section, no, tmp;
 	    		if(+diff){
 		    		no = this.number + diff;
 		    		no = no < 1 ? 1 : no;
@@ -69,7 +72,10 @@
 		    	}else{
 		    		no = this.number;
 		    	}
-	    		location.hash = location.hash.replace(/\d+/, no);
+		    	section = this.section;
+		    	tmp = location.hash.split('/');
+		    	tmp[ tmp.length - 1] = section + no;
+	    		location.hash = tmp.join('/'); //location.hash.replace(/\d+/, no);
 	    	},
 
 	    	fetchData: function(){
