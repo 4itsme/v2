@@ -2,7 +2,15 @@
   <div>
 	Qur'aan Near-Synonym
 	<span class=text-muted>
-		( {{id}} )
+		<a class="arrow-link arrow-left" href=# v-on:click.stop.prevent="onChange( -1 );" title="Previous">◄</a>
+		(
+		{{section}}
+		<select v-model="number" @change="onChange">
+			<option v-for="p in topicsCount" :value="p">{{p}}</option>
+		</select>
+		)
+		<!--( {{id}} )-->
+		<a class="arrow-link arrow-right" href=# v-on:click.stop.prevent="onChange( +1 );" title="Next">►</a>
 	</span>
 	<HR/><BR/>
 
@@ -30,6 +38,10 @@
 				error: null,
 				loading: null,
 				data: null,
+				topicsCount: null,
+				section: null,
+				number: null,
+				key: null,
 			};
 		},
 		created: function() {
@@ -44,6 +56,10 @@
 		    },
 	    },
 	    methods: {
+	    	onChange: function(diff){
+	    		location.hash = location.hash.replace(/\d+/, this.number + diff)
+	    	},
+
 	    	fetchData: function(){
 	    		//this.data.id = + new Date();
 	    		this.error = /*this.data =*/ null;
@@ -54,11 +70,12 @@
 	    		comp.section = comp.id.replace(/\d+/, ''); //returns "b" for b12
 				comp.number = +comp.id.replace(/[^\d]+/, ''); //returns 12 for b12
 				comp.path = '../data/content/' + comp.section;
-				comp.lookup = 'content/' + comp.section +'/' + comp.id + '.html';
+				comp.key = 'content/' + comp.section +'/' + comp.id + '.html';
 				//debugger;
 	    		require([ '../data/content/' + comp.section ], function( data ){
 //	    			console.log( data );
-	    			comp.data = data[ comp.lookup ];
+					comp.topicsCount = Object.keys( data ).length;
+	    			comp.data = data[ comp.key ];
 	    			if(!comp.data){
 	    				comp.error = "No entry found for " + comp.id + " in section " + comp.section;
 	    			}else{
@@ -74,7 +91,7 @@
 	    								// /[\u0600-\u06FF]+/g;
 	    				comp.data = comp.data.replace(/font-size:11pt;margin:0;font-family:&quot;Arial&quot;;padding:0/g, '') // style="text-align:right;color:#000000;direction:ltr;font-size:11pt;margin:0;font-family:&quot;Arial&quot;;padding:0"
 	    									 //.replace(/ style="font-size:16pt"/g, '')
-	    									 .replace(/font-size:16pt/g, ''); //font-size:16pt
+	    									 .replace(/font-size:\d+pt/g, ''); //font-size:16pt
 	    				comp.data = fnGrabHtmlBody( comp.data )
 	    								.replace(/&#(\d+);/g, function(match, match2) { //first replace Html entities like '&#1740;&#1614;&#1575;&#1620;&#1614;&#1587;&#1614;'
 	    									return String.fromCharCode(+match2);
