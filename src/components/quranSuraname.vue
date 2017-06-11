@@ -18,12 +18,12 @@
 	props: ['metadata'], //ex: { "start": 7, "ayahs": 286, "order": 87, "rukus": 40, "arabic_name": "البقرة", "english_name": "Al-Baqara", "english_meaning": "The Cow", "type": "Medinan", "name": "2. Al-Baqara البقرة", "value": 2 }
 	data: function(){
 		return {  
-			bus: bus || (this.$parent && this.$parent.bus)
+			bus: this.bus || (this.$parent && this.$parent.bus),
 		};
 	},
 	methods:{
 		onClickSura: function( surano ){
-			var bus = bus || (this.$parent && this.$parent.$parent && this.$parent.$parent.$parent && this.$parent.$parent.$parent.bus);
+			var bus = this.bus || (this.$parent && this.$parent.bus);
 			if(bus) bus.$emit('onClickSura', surano );
 		},
 	},

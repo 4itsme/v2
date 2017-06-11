@@ -52,7 +52,7 @@
 			props: ['suras'],
 			data: function(){
 				return { 
-					bus: bus || (this.$parent && this.$parent.bus),
+					bus: this.bus || (this.$parent && this.$parent.bus),
 					keyword: null 
 				};
 			},
