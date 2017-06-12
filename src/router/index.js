@@ -10,6 +10,7 @@ import qPage from '../components/qPage.vue'
 import qJuz from '../components/qJuz.vue'
 import qNav from '../components/qNav.vue'
 import quranSynonym from '../components/quranSynonym.vue'
+import quranSearch from '../components/quranSearch.vue'
 Vue.component('quranSarf', quranSarf);
 Vue.component('quranDashboard', quranDashboard);
 Vue.component('quranSuraname', quranSuraname);
@@ -19,6 +20,8 @@ Vue.component('qPage', qPage);
 Vue.component('qJuz', qJuz);
 Vue.component('qNav', qNav);
 Vue.component('quranSynonym', quranSynonym);
+Vue.component('quranSearch', quranSearch);
+
 
 var comps = {
 			quranSynonym: quranSynonym,
