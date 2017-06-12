@@ -23,7 +23,21 @@
 	<div v-else-if="error">
 		ERROR:<BR/> {{ error }}
 	</div>
-	<div v-else v-html='data'>
+	<div v-else>
+		<div v-if='words'>
+			<span v-for="word in words">
+				<span class=arr2 style=direction:rtl>{{ word.word }}</span>
+				<span class=text-muted>&nbsp;-&nbsp;</span>
+			</span>
+			<span v-for="word in words">
+				<span class="label label-default">{{ word.wordEn }}</span>&nbsp;
+			</span>
+			<span v-for="word in words">
+				<span class=text-muted>{{word.root}}&nbsp;</span>
+			</span>
+			<HR/>
+		</div>
+		<div v-html='data'></div>
 	</div>
 <!-- 	<div class=text-muted>
 		{{data}}
@@ -46,6 +60,7 @@
 				number: null,
 				key: null,
 				sections: 'A,AA,b,ch,d,DA,dd,dh,E,f,gg,gh,h,HA,j,k,kh,l,m,n,p,q,r,s,SA,sh,t,TA,th,tt,w,y,z,ZA'.split(','),
+				words: null,
 			};
 		},
 		created: function() {
@@ -85,6 +100,7 @@
 	    		this.data = null;
 	    		var comp = this;
 
+	    		if(!comp.id){ comp.id = "A1"; }//set a default value
 	    		comp.section = comp.id.replace(/\d+/, ''); //returns "b" for b12
 				comp.number = +comp.id.replace(/[^\d]+/, ''); //returns 12 for b12
 				comp.path = '../data/content/' + comp.section;
@@ -131,6 +147,11 @@
 	    								.replace(arabicRegex, function(match){ //wrap arabic text in classname
 											return '<span class=arr2 style=color:yellowgreen>' + match + '</span>';
 										 });
+	    				require(['../modules/qSynonyms', '../data/synonymsDATA'], function(qSynonyms, synonymsDATA){
+	    					qSynonyms.setData( synonymsDATA );
+	    					var words = qSynonyms.get(comp.id);
+	    					comp.words = words;
+	    				});
 
 	    			}
 	    			comp.loading = false;
