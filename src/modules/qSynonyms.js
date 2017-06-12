@@ -1,4 +1,4 @@
-define(['Q'], function(Q){
+define(['Q', '../lib/lodash.min'], function(Q, _){
 //var qSynonyms = (function(){
 	var publicApi = {},
 		v = 0.1;
